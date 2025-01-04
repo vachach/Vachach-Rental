@@ -30,9 +30,10 @@
 
 1. **Clone the repository**:
 
-   bash
+   ```bash
    git clone https://github.com/username/vachach-rental.git
    cd vachach-rental
+   ```
 
 2. **Set up the backend**:
 

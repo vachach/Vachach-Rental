@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class UserController extends Controller
 {
     // Barcha foydalanuvchilarni ko'rsatish
     public function index()
     {
-        $users = User::all();  // Barcha foydalanuvchilarni olish
-        return view('users.index', compact('users'));
+        $users = User::select('id', 'name', 'email', 'created_at')->paginate(10);  // Barcha foydalanuvchilarni olish
+        return Inertia::render('Users/Index', [
+            'users' => $users,
+        ]);
     }
 
     // Yangi foydalanuvchi yaratish formasi

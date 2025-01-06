@@ -11,7 +11,7 @@ class UserController extends Controller
     // Barcha foydalanuvchilarni ko'rsatish
     public function index()
     {
-        $users = User::select('id', 'name', 'email', 'created_at')->paginate(10);  // Barcha foydalanuvchilarni olish
+        $users = User::select('id', 'name', 'email','phone_number', 'role', 'role')->paginate(10);  // Barcha foydalanuvchilarni olish
         return Inertia::render('Users/Index', [
             'users' => $users,
         ]);
